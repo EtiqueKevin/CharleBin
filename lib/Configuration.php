@@ -2,10 +2,11 @@
 /**
  * PrivateBin
  *
- * a zero-knowledge paste bin
+ * A zero-knowledge paste bin
  *
+ * 
+* @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @link      https://github.com/PrivateBin/PrivateBin
- * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
  * @version   1.5.1
  */
@@ -101,7 +102,7 @@ class Configuration
     );
 
     /**
-     * parse configuration file and ensure default configuration values are present
+     * Parse configuration file and ensure default configuration values are present
      *
      * @throws Exception
      */
@@ -248,7 +249,7 @@ class Configuration
     }
 
     /**
-     * get configuration as array
+     * Get configuration as array
      *
      * @return array
      */
@@ -258,7 +259,7 @@ class Configuration
     }
 
     /**
-     * get default configuration as array
+     * Get default configuration as array
      *
      * @return array
      */
@@ -268,7 +269,7 @@ class Configuration
     }
 
     /**
-     * get a key from the configuration, typically the main section or all keys
+     * Get a key from the configuration, typically the main section or all keys
      *
      * @param string $key
      * @param string $section defaults to main
