@@ -1,34 +1,25 @@
-name: Lint
+name: PHP Linter with CodeSniffer
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
 
 jobs:
-  run-linters:
-    name: Run linters
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "7.4"
-          coverage: none
-          tools: phpcs
+          php-version: '7.4'
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          php_codesniffer: true
-          # Optional: Ignore warnings
-          php_codesniffer_args: "-n"
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Run PHP_CodeSniffer
+        run: vendor/bin/phpcs --standard=PSR2 --warning-severity=0 .
